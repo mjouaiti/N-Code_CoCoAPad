@@ -81,15 +81,20 @@ def generate_animal_dict():
 
 animal_dict = generate_animal_dict()
 
+def clean_list(list_, word_dict):
+    return [l for l in list_ if l in word_dict]
+
 def animal_task(list_):
     measures = {}
     # discrepancy/asides
-    measures["lexical_frequency"] = [lexical_frequency(word) for word in list_]
-    measures["repetition"] = repetition(list_)
-    measures["word_count"] = len(list_)
-    measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list_]))
+    cleaned_list = clean_list(list_, animal_dict)
+    measures["total_word_count"] = len(list_)
+    measures["lexical_frequency"] = [lexical_frequency(word) for word in cleaned_list]
+    measures["repetition"] = repetition(cleaned_list)
+    measures["word_count"] = len(cleaned_list)
+    measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in cleaned_list]))
     measures["discrepancy"] = len([w for w in list_ if w not in animal_dict])
-    measures["nb_clusters"], measures["nb_switches"], measures["clusters"] = switching_clustering(list_, animal_dict)
+    measures["nb_clusters"], measures["nb_switches"], measures["clusters"] = switching_clustering(cleaned_list, animal_dict)
     
     return measures
 
