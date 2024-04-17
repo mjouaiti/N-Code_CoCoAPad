@@ -1,9 +1,9 @@
-Africa: aardvark, antelope, buffalo, camel, chameleon, cheetah, chimpanzee, cobra, eland, elephant, gazelle, giraffe, gnu, gorilla, hippopotamus, hyena, impala, jackal, lemur, leopard, lion, manatee, mongoose, monkey, ostrich, panther, rhinoceros, tiger, wildebeest, warthog, zebra
+Africa: aardvark, antelope, buffalo, camel, chameleon, cheetah, chimpanzee, cobra, eland, elephant, gazelle, giraffe, gnu, gorilla, hippopotamus, hyena, impala, jackal, lemur, leopard, lion, manatee, mongoose, monkey, ostrich, panther, rhinoceros, tiger, wildebeest, warthog, zebra, meerkat
 Australia: emu, kangaroo, kiwi, opossum, platypus, Tasmanian devil, wallaby, wombat
 Arctic/Far North: auk, caribou, musk ox, penguin, polar bear, reindeer, seal
 Farm: chicken, cow, donkey, ferret, goat, horse, mule, pig, sheep, turkey
 North America: badger,bear,beaver, bobcat, caribou, chipmunk, cougar, deer, elk, fox, moose, mountain lion, puma, rabbit, raccoon, skunk, squirrel, wolf
-Water: alligator, auk, beaver, crocodile, dolphin, fish, frog, lobster, manatee, muskrat, newt, octopus, otter, oyster, penguin, platypus, salamander, sea lion, seal, shark, toad, turtle, whale
+Water: alligator, auk, beaver, crocodile, dolphin, fish, frog, lobster, manatee, muskrat, newt, octopus, otter, oyster, penguin, platypus, salamander, sea lion, seal, shark, toad, turtle, whale, crab, lobster, krill, shrimp, prawns, crayfish, dogfish
 Beasts of burden: camel, donkey, horse,llama, ox
 Fur: beaver, chinchilla, fox, mink, rabbit
 Pets: budgie, canary, cat, dog, gerbil, golden retriever, guinea, pig, hamster, parrot,rabbit
@@ -15,3 +15,6 @@ Feline: bobcat, cat, cheetah, cougar, jaguar, leopard, lion, lynx, mountain lion
 Fish: bass, guppy,salmon, trout, tuna, dogfis, catfish
 Insect: ant, beetle, cockroach, flea, fly, praying mantis
 Insectivores: aardvark, anteater, hedgehog, mole, shrew
+Reptile: snake, turtle, lizard, Komodo dragon, dinosaur, chameleons, crocodiles, iguana
+Crustaceans: crab, lobster, krill, shrimp, prawns, crayfish 
+Rodent: mouse, rat
