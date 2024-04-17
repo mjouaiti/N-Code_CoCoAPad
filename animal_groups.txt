@@ -12,6 +12,6 @@ Bovine: bison, buffalo, cow, musk ox, yak
 Canine: coyote, dog, fox, hyena, jackal, wolf
 Deer: antelope, caribou, eland, elk, gazelle, gnu, impala, moose, reindeer, wildebeest
 Feline: bobcat, cat, cheetah, cougar, jaguar, leopard, lion, lynx, mountain lion, ocelot, panther, puma, tiger
-Fish: bass, guppy,salmon, trout, tuna
+Fish: bass, guppy,salmon, trout, tuna, dogfis, catfish
 Insect: ant, beetle, cockroach, flea, fly, praying mantis
 Insectivores: aardvark, anteater, hedgehog, mole, shrew
