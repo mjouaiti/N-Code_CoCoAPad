@@ -3,8 +3,8 @@ import pandas as pd
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet as wn
 
-import nltk
-nltk.download('wordnet')
+#import nltk
+#nltk.download('wordnet')
  
 lemmatizer = WordNetLemmatizer()
 
@@ -25,7 +25,10 @@ def repetition(list):
 def switching_clustering(list, word_dict):
     cat = []
     for l in list:
-        cat.append(word_dict[l])
+        try:
+            cat.append(word_dict[l])
+        except:
+            cat.append("N/A")
     
     return cat
     
@@ -57,6 +60,7 @@ def animal_task(list):
     measures["word_count"] = len(list)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list]))
     measures["animal_categories"] = switching_clustering(list, animal_dict)
+    measures["discrepancy"] = len([w for w in list if w not in animal_dict])
     
     return measures
 
@@ -68,14 +72,15 @@ def fruit_veg_task(list):
     measures["repetition"] = repetition(list)
     measures["word_count"] = len(list)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list]))
-    measures["animal_categories"] = switching_clustering(list, fruit_dict)
+    measures["fruit_veg_categories"] = switching_clustering(list, fruit_dict)
+    measures["discrepancy"] = len([w for w in list if w not in fruit_dict])
     
 def f_starting_words(list):
     measures = {}
     # discrepancy/asides
     measures["lexical_frequency"] = [lexical_frequency(word) for word in list]
     measures["repetition"] = repetition(list)
-    measures["discrepancy"] = np.count([word for word in list if not word[0].lower() == "f"])
+    measures["discrepancy"] = len([word for word in list if not word[0].lower() == "f"])
     measures["word_count"] = len(list)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list]))
     return measures
@@ -85,7 +90,7 @@ def a_starting_words(list):
     # discrepancy/asides
     measures["lexical_frequency"] = [lexical_frequency(word) for word in list]
     measures["repetition"] = repetition(list)
-    measures["discrepancy"] = np.count([word for word in list if not word[0].lower() == "a"])
+    measures["discrepancy"] = len([word for word in list if not word[0].lower() == "a"])
     measures["word_count"] = len(list)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list]))
     return measures
@@ -116,7 +121,7 @@ def action_words(list):
 if __name__ == "__main__":
 #    print(action_words(["do", "play", "eat", "house", "dog"]))
 
-    list = ["cat", "dog", "parrot", "dog", "tuna", "camel"]
+    list = ["cat", "dog", "parrot", "dog", "tuna", "camel", "play"]
     list = [l.lower() for l in list]
     
     print(animal_task(list))
