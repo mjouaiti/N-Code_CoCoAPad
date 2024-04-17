@@ -1,0 +1,21 @@
+#documentation
+recursive-include docs/_build/html *.*
+
+#package
+recursive-include vfclust *
+
+#omit some unnecessary files (results, compiled source, mac junk)
+recursive-exclude * *_vfclust_*
+exclude vfclust/t2p/t2p
+recursive-exclude * .DS_Store
+
+#Misc
+include CHANGES.txt
+include LICENSE.txt
+include README
+
+
+## When adding in the app:
+# include vfclust_app 
+# include requirements.txt
+
