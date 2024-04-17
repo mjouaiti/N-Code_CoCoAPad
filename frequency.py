@@ -21,6 +21,33 @@ def repetition(list):
     _list = [lemmatizer.lemmatize(l) for l in list]
     words_said = set(_list)
     return len(_list) - len(words_said)
+    
+def switching_clustering(list, word_dict):
+    cat = []
+    for l in list:
+        cat.append(word_dict[l])
+    
+    return cat
+    
+def generate_animal_dict():
+
+    f = open("animal_groups.txt", "r")
+    animal_dict = {}
+    
+    for line in f:
+        split = line.split(":")
+        cat, words = split[0], split[1].split(",")
+        words = [w.strip() for w in words]
+        
+        for w in words:
+            if w in animal_dict:
+                animal_dict[w].append(cat)
+            else:
+                animal_dict[w] = [cat]
+
+    return animal_dict
+
+animal_dict = generate_animal_dict()
 
 def animal_task(list):
     measures = {}
@@ -29,6 +56,9 @@ def animal_task(list):
     measures["repetition"] = repetition(list)
     measures["word_count"] = len(list)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list]))
+    measures["animal_categories"] = switching_clustering(list, animal_dict)
+    
+    return measures
 
 
 def fruit_veg_task(list):
@@ -38,6 +68,7 @@ def fruit_veg_task(list):
     measures["repetition"] = repetition(list)
     measures["word_count"] = len(list)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list]))
+    measures["animal_categories"] = switching_clustering(list, fruit_dict)
     
 def f_starting_words(list):
     measures = {}
@@ -47,6 +78,7 @@ def f_starting_words(list):
     measures["discrepancy"] = np.count([word for word in list if not word[0].lower() == "f"])
     measures["word_count"] = len(list)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list]))
+    return measures
     
 def a_starting_words(list):
     measures = {}
@@ -56,6 +88,8 @@ def a_starting_words(list):
     measures["discrepancy"] = np.count([word for word in list if not word[0].lower() == "a"])
     measures["word_count"] = len(list)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list]))
+    return measures
+
     
 def action_words(list):
     measures = {}
@@ -81,11 +115,9 @@ def action_words(list):
 
 if __name__ == "__main__":
 #    print(action_words(["do", "play", "eat", "house", "dog"]))
-    f = open("animal_groups.txt", "r")
-    for line in f:
-        print(line)
-        split = line.split(":")
-        cat, words = split[0], split[1].split(",")
-        
-        print(cat, words)
-        
+
+    list = ["cat", "dog", "parrot", "dog", "tuna", "camel"]
+    list = [l.lower() for l in list]
+    
+    print(animal_task(list))
+
