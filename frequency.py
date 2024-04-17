@@ -93,7 +93,7 @@ def animal_task(list_):
     measures["repetition"] = repetition(cleaned_list)
     measures["word_count"] = len(cleaned_list)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in cleaned_list]))
-    measures["discrepancy"] = len([w for w in list_ if w not in animal_dict])
+    measures["error"] = len([w for w in list_ if w not in animal_dict])
     measures["nb_clusters"], measures["nb_switches"], measures["clusters"] = switching_clustering(cleaned_list, animal_dict)
     
     return measures
@@ -107,7 +107,7 @@ def fruit_veg_task(list_):
     measures["word_count"] = len(list_)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list_]))
     measures["fruit_veg_categories"] = switching_clustering(list_, fruit_dict)
-    measures["discrepancy"] = len([w for w in list_ if w not in fruit_dict])
+    measures["error"] = len([w for w in list_ if w not in fruit_dict])
     measures["nb_clusters"], measures["nb_switches"] = switching_clustering(list_)
     
     
@@ -116,7 +116,7 @@ def f_starting_words(list_):
     # discrepancy/asides
     measures["lexical_frequency"] = [lexical_frequency(word) for word in list_]
     measures["repetition"] = repetition(list_)
-    measures["discrepancy"] = len([word for word in list_ if not word[0].lower() == "f"])
+    measures["error"] = len([word for word in list_ if not word[0].lower() == "f"])
     measures["word_count"] = len(list_)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list_]))
     measures["nb_clusters"], measures["nb_switches"] = switching_clustering(list_)
@@ -128,7 +128,7 @@ def a_starting_words(list_):
     # discrepancy/asides
     measures["lexical_frequency"] = [lexical_frequency(word) for word in list_]
     measures["repetition"] = repetition(list_)
-    measures["discrepancy"] = len([word for word in list_ if not word[0].lower() == "a"])
+    measures["error"] = len([word for word in list_ if not word[0].lower() == "a"])
     measures["word_count"] = len(list_)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list_]))
     measures["nb_clusters"], measures["nb_switches"] = switching_clustering(list_)
@@ -141,7 +141,7 @@ def action_words(list_):
     # discrepancy/asides
     measures["lexical_frequency"] = [lexical_frequency(word) for word in list_]
     measures["repetition"] = repetition(list_)
-    measures["discrepancy"] = 0
+    measures["error"] = 0
     measures["word_count"] = len(list_)
     measures["unique_word_count"] = len(set([lemmatizer.lemmatize(l) for l in list_]))
     measures["nb_clusters"], measures["nb_switches"] = switching_clustering(list_)
