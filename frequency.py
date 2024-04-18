@@ -24,6 +24,10 @@ def repetition(list_):
     
 from itertools import groupby
 def switching_clustering(list_, word_dict):
+    if len(list_) == 0:
+        return 0, 0, []
+    else:
+        return 1, 0, ['', '1']
     cat = []
     for l in list_:
         try:
