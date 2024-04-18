@@ -163,8 +163,8 @@ def action_words(list_):
 if __name__ == "__main__":
 #    print(action_words(["do", "play", "eat", "house", "dog"]))
 
-    list_ = ["cat", "dog", "wolf", "parrot", "dog", "hamster", "tuna", "camel", "play"]
-    list_ = ["dog", "lion", "fish"]
+#    list_ = ["cat", "dog", "wolf", "parrot", "dog", "hamster", "tuna", "camel", "play"]
+#    list_ = ["dog", "lion", "fish"]
     list_ = ["dog", "cat"]
         
     list_ = [l.lower() for l in list_]
@@ -174,9 +174,9 @@ if __name__ == "__main__":
 #father_A_words.wav
 #'text': ' Artfork, Apple, S, Ores, Endla, Abacus, Artifact Albium Acorn Aster Asva. Adornment.''
 
-    text = 'Fox, horse, rabbit, snake, whale, crab, person, giraffe, hyena, tortoise, meerkat, tiger, bison, cow, horse, sheep, goat, chicken, cat, dog, seal, sea lion, shark, dogfish.'
+#    text = 'Fox, horse, rabbit, snake, whale, crab, person, giraffe, hyena, tortoise, meerkat, tiger, bison, cow, horse, sheep, goat, chicken, cat, dog, seal, sea lion, shark, dogfish.'
+#    
+#    list_ = text.lower().replace(",", "").replace(".", "").split(" ")
     
-    text = text.lower().replace(",", "").replace(".", "").split(" ")
-    
-    print(animal_task(text))
+    print(animal_task(list_))
 
